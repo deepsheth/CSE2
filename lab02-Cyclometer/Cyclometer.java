@@ -45,5 +45,3 @@ public class Cyclometer {
         
     } //END main method
 } //END Cyclometer clas
-
-//urk215
