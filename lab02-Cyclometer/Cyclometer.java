@@ -44,4 +44,4 @@ public class Cyclometer {
         System.out.println("The total distance was "+totalDistance+" miles.");
         
     } //END main method
-} //END Cyclometer clas
+} //END Cyclometer class
