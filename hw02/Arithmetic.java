@@ -1,15 +1,16 @@
 //Deep Sheth
-//Arithmetic
+//dss218
+//Program: Arithmetic
 //Sept. 9, 2014
 
 //Program will compute cost of items bought, sales tax on each item, subtotal, total tax, and total cost of transaction
 
-//Enables decimal formatting
+//Imports DecimalFormat class, allowing easy decimal formatting
 import java.text.DecimalFormat;
 
 public class Arithmetic {
     public static void main(String[] args) {
-        //Formats to two decimals
+        //Defines to format output with 2 decimals, zeros will be dropped
         DecimalFormat d = new DecimalFormat("0.##");
         
         //Number of pairs of socks
@@ -38,8 +39,9 @@ public class Arithmetic {
         double taxPercent=0.06;
         
         //Displays cost of items & their tax
+        System.out.println("------ ITEM BREAKDOWN ------");
         System.out.println("Cost of 3 pairs of socks: $" +totalSockCost$);
-        System.out.println("   Tax on all socks: $"+ d.format(totalSockCost$*taxPercent));
+        System.out.println("   Tax on all socks: $"+ d.format(totalSockCost$*taxPercent)); //d.format only allows two decimals
         System.out.println("Cost of 6 drinking glasses: $" +totalGlassCost$);
         System.out.println("   Tax on all drinking glasses: $"+ d.format(totalGlassCost$*taxPercent));
         System.out.println("Cost of envelope box: $" +envelopeCost$);
@@ -47,10 +49,7 @@ public class Arithmetic {
         
         //Displays subtotal, total tax, and total transaction cost
         System.out.println("Subtotal: $" +subtotal);
-        System.out.println("Total tax on all items: $"+ d.format(subtotal*taxPercent));
+        System.out.println("   Total tax on all items: $"+ d.format(subtotal*taxPercent));
         System.out.println("** Total cost of transaction: **  $"+ d.format((subtotal*taxPercent+subtotal)));
-        
-        System.out.println("Thank you for shopping at Walmart!");
-        
     }
 }
