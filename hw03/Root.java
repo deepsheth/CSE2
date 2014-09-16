@@ -18,12 +18,14 @@ public class Root {
         //Divides input by 3
         double guess = number/3;
         
+        
         //Creates more accurate guess of cube root by repeating a formula
         double guess1 = ((2*guess*guess*guess+number)/(3*guess*guess));
         double guess2 = ((2*guess1*guess1*guess1+number)/(3*guess1*guess1));
         double guess3 = ((2*guess2*guess2*guess2+number)/(3*guess2*guess2));
         double guess4 = ((2*guess3*guess3*guess3+number)/(3*guess3*guess3));
         double guess5 = ((2*guess4*guess4*guess4+number)/(3*guess4*guess4));
+        
         
         //Outputs accurate guess
         System.out.println("The cube root of "+number+" is: " + guess5);
