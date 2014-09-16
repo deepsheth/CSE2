@@ -1,4 +1,5 @@
 //Deep Sheth
+//dss218
 //Four Digits
 //Sept. 15, 2014
 //Given number, program will output first four numbers after decimal

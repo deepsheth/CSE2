@@ -1,4 +1,5 @@
 //Deep Sheth
+//dss218
 //Bicycle
 //Sept. 15, 2014
 //Given time in seconds and counts of wheel rotations, program will display miles traveled, trip time in minutes, and MPH
