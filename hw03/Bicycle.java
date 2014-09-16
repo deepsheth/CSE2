@@ -24,9 +24,9 @@ public class Bicycle {
         secondsPerMinute=60; //seconds in a minute
         double distanceTrip, mph; 
         
-        System.out.print("Enter number of counts on Cyclometer: ");
+        System.out.print("Enter number of counts on bicycle: ");
         int counts = input.nextInt();
-        System.out.print("Enter number of seconds on Cyclometer: ");
+        System.out.print("Enter number of seconds on bicycle: ");
         int tripTime = input.nextInt();
         
         //Distance of trip in INCHES
