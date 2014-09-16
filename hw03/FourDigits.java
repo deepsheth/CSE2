@@ -28,11 +28,11 @@ public class FourDigits {
         //Moves decimal 4 digits to right
         decimals*=10000;
         
-        //In case user input has over 4 decimals, casting cuts out extra decimals
+        //In case user input has over 4 decimals, extra decimals are truncated
         decimals = (int)decimals;
         
         //d.format ensures answer has only 4 digits (in case tenths place has value of 0)
-        System.out.println("The right four digits of the number are: " + d.format(decimals));
+        System.out.println("The right four decimals of the number are: " + d.format(decimals));
         
     }
 }
