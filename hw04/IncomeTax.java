@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class IncomeTax {
     public static void main(String[] args) {
         
+         //Scanner class allows console input
         Scanner input = new Scanner(System.in);
         
         //Asks user for income
