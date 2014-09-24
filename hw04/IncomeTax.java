@@ -33,25 +33,25 @@ public class IncomeTax {
             //Calculates if income is < $20K
             else if (income < 20) {
                 taxPercent = 0.05;
-                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands));
+                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands)+".");
             }
             
             //Calculates if income is between $20k and $40K
             else if (income >= 20 && income < 40) {
                 taxPercent = 0.07;
-                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands));
+                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands)+".");
             }
             
             //Calculates if income is betweeen $40k and $78k
             else if (income >=40 && income < 78) {
                 taxPercent = 0.12;
-                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands));
+                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands)+".");
             }
             
             //Calculates if income > $78K
             else if (income >= 78) {
                 taxPercent = 0.14;
-                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands));
+                System.out.println("The tax rate on $"+income+",000 is "+ (int)(taxPercent*100)+".0%, and the tax is $"+ (int)(taxPercent*incomeThousands)+".");
             }
 
         }//END if positive input

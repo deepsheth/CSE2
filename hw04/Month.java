@@ -76,11 +76,13 @@ public class Month {
             
             else { //Error message if month is not between 1 & 12
                 System.out.println("You did not enter an integer within the range 1-12.");
+                return;
             }
         }
 
         else { //Error message if month is not an int.
             System.out.println("Please enter an integer.");
+            return;
         }
         
     }//END main

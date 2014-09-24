@@ -62,9 +62,7 @@ public class CourseNumber {
             else { //Error message if number is not divislbe by 10
                 System.out.println("You entered an invalid course number.");
             }
-            
         }
-        
         else { //If not integer
             System.out.println("You entered an invalid course number. It must be an integer.");
             return;
