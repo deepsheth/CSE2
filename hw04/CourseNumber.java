@@ -1,6 +1,6 @@
 //Deep Sheth
 //dss218
-//Month
+//Course Number
 //Sept. 23, 2014
 //Given Lehigh course number, program will determine year & time of year the course is offered
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CourseNumber {
     public static void main(String[] args) {
         
-         //Scanner class allows console input
+        //Scanner class allows console input
         Scanner input = new Scanner(System.in);
         
         //Asks user to input Lehigh course #
@@ -46,7 +46,7 @@ public class CourseNumber {
                         System.out.println("This course was offered in Summer 2 of "+yearNum+".");
                         
                     }
-                    else if (timeOffered == 40 ) {
+                    else if (timeOffered == 40) {
                         System.out.println("This course was offered in fall of "+yearNum+".");
                     }
                     
@@ -57,10 +57,12 @@ public class CourseNumber {
                 }
                 else { //Error message if outside of range
                     System.out.println("You entered a number outside of the range [185510, 201440].");
+                    return;
                 }
             }
             else { //Error message if number is not divislbe by 10
                 System.out.println("You entered an invalid course number.");
+                return;
             }
         }
         else { //If not integer
