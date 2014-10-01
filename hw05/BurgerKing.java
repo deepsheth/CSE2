@@ -1,5 +1,6 @@
 // Deep Sheth
 // dss218
+// Burger King
 // September 30, 2014
 // User will choose the type of burger, soda, and fries they would like to order by entering a letter.
 
@@ -22,6 +23,11 @@ public class BurgerKing {
         //Stores user input in variable
         String orderResponse = input.next();
         
+        //Error message if user inputs multiple letters
+        if (orderResponse.length() > 1) {
+            System.out.println("You entered " + orderResponse.length() + " letters. Please only enter 1.");
+            return;
+        }
         
         //Based on user's response, program asks futher questions
         switch (orderResponse) {
@@ -37,6 +43,12 @@ public class BurgerKing {
                 System.out.print("Your choice: ");
                 String burgerChoice = input.next(); //Stores input in variable
                 
+                //Error message if user inputs multiple letters
+                if (burgerChoice.length() > 1) {
+                    System.out.println("You entered " + burgerChoice.length() + " letters. Please only enter 1.");
+                    return;
+                }
+        
                 //Outputs what type of burger was ordered
                 switch (burgerChoice) {
                     case "A":
@@ -67,6 +79,12 @@ public class BurgerKing {
                 System.out.print("Your choice: ");
                 String sodaChoice = input.next(); // Stores input into variable
                 
+                //Error message if user inputs multiple letters
+                if (sodaChoice.length() > 1) {
+                    System.out.println("You entered " + sodaChoice.length() + " letters. Please only enter 1.");
+                    return;
+                }
+                
                 //Outputs what type of soda was ordered
                 switch (sodaChoice) {
                     case "P":
@@ -95,10 +113,17 @@ public class BurgerKing {
             case "F":
             case "f":
                 
+                
                 //Asks user to specify type of fries
                 System.out.println("Do you want large (L/l) or small (S/s) fries?");
                 System.out.print("Your choice: ");
                 String friesChoice = input.next(); //Stores input into variable
+                
+                //Error message if user inputs multiple letters
+                if (friesChoice.length() > 1) {
+                    System.out.println("You entered " + friesChoice.length() + " letters. Please only enter 1.");
+                    return;
+                }
                 
                 //Outputs type of fries ordered
                 switch(friesChoice) {
@@ -119,7 +144,8 @@ public class BurgerKing {
             //If none of cases are met, then the user did not enter a proper letter
             default:
                 System.out.println("Sorry. You did not choose a letter from the menu.");
-                break;
+                break; 
+                
         }//End userResponse case
     }//End main
 }//End class
