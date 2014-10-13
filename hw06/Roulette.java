@@ -13,11 +13,13 @@ public class Roulette {
         Scanner input = new Scanner(System.in);
         
         //Variables
-        int nWins = 0; //spins won 
-        int nLosses = 0; //spins lost
-        int gamesWon = 0; //games won
-        int gamesWonSome = 0; //games partially won
-        int gamesLost = 0; //games lost
+        //spins won, lost
+        int nWins = 0, nLosses = 0;
+        //games won, partially won, lost
+        int gamesWon = 0, gamesWonSome = 0, gamesLost = 0; 
+        //money won, lost
+        int won$ = 0, lost$ = 0;
+        
         
  /*     ============================================================
            .::[ CODE TO ALLOW USER TO CHOOSE NUMBER TO BET ON ]::.
@@ -59,16 +61,16 @@ public class Roulette {
            playerNum = 37;
        } */
        
-       System.out.println(" * * * * R O U L E T T E  * * * * ");
+       System.out.println(" * * * *  R O U L E T T E  * * * * ");
        
        //Program picks user's number
        int playerNum = (int)(Math.random()*38);
        System.out.println("The number you are betting on is " + playerNum + ".");
        
        
-       for (int n=0; n<1000; n++) { //100 spins are repeated 1000 times
+        for (int n=0; n<1000; n++) { //100 spins are repeated 1000 times
            
-           for (int i=0; i<100; i++) { //player spins 100 times
+            for (int i=0; i<100; i++) { //player spins 100 times
                 int rouletteNum = (int)(Math.random()*38); //Generates random number from 0-37
                 
                 //counts number of times player wins/loses per 100 spisn
@@ -76,8 +78,9 @@ public class Roulette {
                    nWins++;
                 else  //case for loss
                    nLosses++;
-           }//end for
+            }//end for
            
+            //For each 100 spins, if statement classifies win/loss
             //3 wins means player profited 
             if (nWins >= 3) 
                gamesWon++;
@@ -86,20 +89,20 @@ public class Roulette {
                gamesLost++;
             //1 or 2 wins means player wins some money back
             else {
-               gamesWon++;
                gamesWonSome++;
             }
            
-            //resets counters for next game
+            //resets counters for next game (100 spins)
             nWins=0;
             nLosses=0;
        
-        } //end for loop simulations
+        } //end 1000 loop simulations
        
         //Outputs outcome of 100 spins played 1000 times
         System.out.println("\n1000 repetitions of 100 spin simulation:");
         System.out.println("\tNumber of games you win a profit: " + gamesWon);
-        System.out.println("\tNumber of games you win some money back " + gamesWonSome);
+        System.out.println("\tNumber of games you only win some money back (less than $100): " + gamesWonSome);
+        System.out.println("\t   Total number of games you win money: " + (gamesWon+gamesWonSome));
         System.out.println("\tNumber of games you lose everything: " + gamesLost);
        
 
