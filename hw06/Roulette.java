@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Roulette {
     public static void main(String[] args) {
         
+        //Allows console input
         Scanner input = new Scanner(System.in);
         
         //Variables
@@ -63,7 +64,7 @@ public class Roulette {
        
        System.out.println(" * * * *  R O U L E T T E  * * * * ");
        
-       //Program picks user's number
+       //Program picks user's number instead of user
        int playerNum = (int)(Math.random()*38);
        System.out.println("The number you are betting on is " + playerNum + ".");
        
@@ -81,16 +82,13 @@ public class Roulette {
             }//end for
            
             //For each 100 spins, if statement classifies win/loss
-            //3 wins means player profited 
-            if (nWins >= 3) 
+            
+            if (nWins >= 3) //3 wins means player profited 
                gamesWon++;
-            //0 wins means player losses everything
-            else if (nWins == 0) 
+            else if (nWins == 0) //0 wins means player losses everything
                gamesLost++;
-            //1 or 2 wins means player wins some money back
-            else {
+            else //1 or 2 wins means player wins some money back
                gamesWonSome++;
-            }
            
             //resets counters for next game (100 spins)
             nWins=0;
