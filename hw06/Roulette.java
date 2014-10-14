@@ -99,7 +99,7 @@ public class Roulette {
         //Outputs outcome of 100 spins played 1000 times
         System.out.println("\n1000 repetitions of 100 spin simulation:");
         System.out.println("\tNumber of games you win a profit: " + gamesWon);
-        System.out.println("\tNumber of games you only win some money back (less than $100): " + gamesWonSome);
+        System.out.println("\tNumber of games you only win some money back (no profit): " + gamesWonSome);
         System.out.println("\t   Total number of games you win money: " + (gamesWon+gamesWonSome));
         System.out.println("\tNumber of games you lose everything: " + gamesLost);
        
