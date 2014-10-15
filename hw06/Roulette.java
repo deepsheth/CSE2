@@ -89,19 +89,25 @@ public class Roulette {
                gamesLost++;
             else //1 or 2 wins means player wins some money back
                gamesWonSome++;
-           
+
+            won$ += nWins; //won$ will equal total amount of wins
+            
             //resets counters for next game (100 spins)
             nWins=0;
             nLosses=0;
-       
+            
         } //end 1000 loop simulations
        
+        lost$ = 100000-(won$*36);
+        
         //Outputs outcome of 100 spins played 1000 times
         System.out.println("\n1000 repetitions of 100 spin simulation:");
         System.out.println("\tNumber of games you win a profit: " + gamesWon);
         System.out.println("\tNumber of games you only win some money back (no profit): " + gamesWonSome);
         System.out.println("\t   Total number of games you win money: " + (gamesWon+gamesWonSome));
+        System.out.println("\t   Total amount of money you win in total: $"+won$*36);
         System.out.println("\tNumber of games you lose everything: " + gamesLost);
+        System.out.println("\n\tIn the end, you lose $"+lost$+" from what you started off with.");
        
 
     } //end main
