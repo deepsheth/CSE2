@@ -32,34 +32,25 @@ public class NumberStack {
             return; 
         }
         
-        numLength=(userNum*2)-1;
+       // numLength=(userNum*2)-1;
         int numLengthReset = 1;
         
-        for(int a=0; a<userNum; a++) { //Allows block repetitiveness  
+        for (int a=0; a<=userNum; a++) { //Creates a new number
+            numLength = (a*2)-1;
             
-            
-                for (int n=1; n<=userNum; n++){
-            
-                    for (int i=0; i<n; i++) { //condition here!
-                        
-                        System.out.print(n);
-                        
-                        
-                        
-                        
-                    }
-                   
-                  
-                    System.out.print("");
+            for(int d=0; d<a; d++) {
+                for(int b=0; b<numLength; b++) { //number of times the number is outputted
                     
+                    System.out.print(a);
                 }
-                
-                System.out.println();
-                //Adds dashes afterwords
-                for (int i=0; i<numLength; i++) {
-                        System.out.print("-");
-                }
-                System.out.println();
+                System.out.println(); // New line follows the number outputtted
+            }    
+            
+            for(int c=0; c<numLength; c++) { //number of times dashes will be displayed after numbers are outputted
+                System.out.print("-");
+            }
+            System.out.println(); // New line follows dashes
+            
             
         }
         
