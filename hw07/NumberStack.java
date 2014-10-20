@@ -20,6 +20,7 @@ public class NumberStack {
         
         System.out.print("Enter a number between 1 - 9: ");
         
+        //Makes sure input is an integer within the range
         if (input.hasNextInt() == false) {
             System.out.println("You did not enter an integer between 1 -9.");
             return;   
@@ -78,28 +79,28 @@ public class NumberStack {
             numLength = (a*2)-1;         //How many digits will be printed of the number
             b=0;
             
-            while (b<a) {
+            while (b<a) {                      //number of lines of the number is outputted
                 space = "%"+(userNum2+1)+"s";  //number of spaces to add before each line
                 System.out.printf(space, "");  //prints spaces before new line
                 c=0;
                 
-                while (c<numLength) {
-                    System.out.print(a);
+                while (c<numLength) {       //number of times the number is outputted
+                    System.out.print(a);    //Prints out the individual number
                     c++;
                 }
-                System.out.println();
+                System.out.println();       //New line follows the line of the number outputtted
                 b++;    
             }
-            System.out.printf(space, "");
+            System.out.printf(space, "");   //Adds proper spacing before dashes
             b=0;
             
-            while (b<numLength) {
+            while (b<numLength) {           //Number of times dashes will be displayed after numbers are outputted
                 System.out.print("-");
                 b++;
             }
-            System.out.println();
-            userNum2--;
-            a++;
+            System.out.println();           // New line follows dashes
+            userNum2--;                     // Decreases space before new lines
+            a++;                            // Number ouputted increases for next iteration
         }
         
         /////////////////////////////////////
@@ -120,25 +121,25 @@ public class NumberStack {
                 System.out.printf(space, "");  //prints spaces before new line
                 c=0;
                 do {
-                    if (a==0) break; //Prevents 0 from outputting before 1
-                    System.out.print(a);
+                    if (a==0) break;        //Prevents 0 from outputting before 1
+                    System.out.print(a);    //Prints out the individual number
                     c++;
-                } while(c<numLength);
-                System.out.println();
-                b++; 
-            } while(b<a);
+                } while(c<numLength);       //Number of times the number is outputted
+                System.out.println();       //New line follows the line of the number outputtted
+                b++;                        //Increases the number of lines outputted for every iteration
+            } while(b<a);                   //Number of lines of the number is outputted
             if (a!=0) System.out.printf(space, ""); //Prevents extra spacing on first line
             
-            b=-1;
+            b=-1;                           //Allows proper output of dashes
             do { 
-                if (b!=-1) 
+                if (b!=-1)                  
                     System.out.print("-");
-                b++;
-            } while(b<numLength);    
+                b++;                
+            } while(b<numLength);           //Number of times dashes will be displayed after numbers are outputted
             
             if (a!=0) System.out.println(); //Prevents extra new line after title
-            userNum2--;
-            a++;
+            userNum2--;                     // Decreases space before new lines
+            a++;                            // Number ouputted increases for next iteration
         } while (a<=userNum);
     }
 }
