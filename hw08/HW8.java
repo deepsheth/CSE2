@@ -23,11 +23,10 @@ public class HW8{
           System.out.println("You entered '"+input+"'");
         }
         
-        // input=getInput(scan,"Choose a digit.","0123456789");
-        // System.out.println("You entered '"+input+"'");
+        input=getInput(scan,"Choose a digit.","0123456789");
+        System.out.println("You entered '"+input+"'");
         
         }  
-
 
     public static char getInput(Scanner scan, String contentToMatch) {
         String input;
@@ -71,12 +70,34 @@ public class HW8{
                         return ' ';
                     }
                     System.out.print("You did not enter a letter from " + contentToMatch + ". Try again: ");
-                    
-                    
             }
             else System.out.print("You did not enter a single character! Try again: ");
-            
         } // end while
     } //end overload 1
     
+    public static char getInput(Scanner scan, String prompt, String numbers) {
+        String input;
+        
+        // System.out.print(prompt + ": ");
+        // for (int i=0; i<numbers; i++){
+        //     System.out.print(numbers.charA)
+        // }
+        System.out.print(prompt + " " + numbers);
+        
+        while (true) {
+            input = scan.next();
+            
+            if (input.length() == 1) {
+                
+                    for (int i=0; i<numbers.length(); i++) {
+                        if (input.equals(""+numbers.charAt(i))){
+                            return numbers.charAt(i);
+                        }
+                    }
+                    
+                    System.out.print("You did not enter a letter from " + numbers + ". Try again: ");
+            }
+            else System.out.print("You did not enter a single character! Try again: ");
+        } // end while
+    } //end overload 1
 }
