@@ -1,6 +1,6 @@
 // Deep Sheth
 // dss218
-// More loops
+// Methods
 // Program finds the largest number user enters and determines if input order is ascending
 
 import java.util.Scanner;
