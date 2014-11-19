@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class PokerOdds{
     int test = 0;
     public static void main(String [] arg){
-        //showHands();
+        showHands();
         simulateOdds();
     }
 
@@ -130,8 +130,7 @@ public class PokerOdds{
         Boolean duplicate;
         int cardRandom;
         
-        for(int i=0; i<5; i++)
-            numOfDuplicates[i] = 0;
+        
             
         for(int i=0; i<5; i++)
             hand[i] = -1;
@@ -159,7 +158,7 @@ public class PokerOdds{
         
         for(int i=0; i<5; i++){
             hand[i] = hand[i]%13;
-            //System.out.println("Hand divided: "+hand[i]);
+           // System.out.println("Hand divided: "+hand[i]);
         }
         
         
@@ -203,8 +202,7 @@ public class PokerOdds{
        //System.out.println("Card With Duplicate: "+cardWithDuplicate);
        
        if (cardWithDuplicate != -1) {
-     //  numOfDuplicates[14 - cardWithDuplicate%13] += 1;
-         numOfDuplicates[cardWithDuplicate] += 1;
+            numOfDuplicates[12 - cardWithDuplicate] += 1;
        }
     }//end thousand loop
        
