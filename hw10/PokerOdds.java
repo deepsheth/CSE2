@@ -6,11 +6,11 @@
 
 import java.util.Random;
 import java.util.Scanner;
-
 public class PokerOdds{
+    int test = 0;
     public static void main(String [] arg){
-        showHands();
-        //simulateOdds();
+        //showHands();
+        simulateOdds();
     }
 
     public static void showHands(){
@@ -35,16 +35,16 @@ public class PokerOdds{
         
         
             for (int i=0; i<5; i++){    
-                int cardRandom = (int)(Math.random() * (52-i));
+                int card = (int)(Math.random() * (52-i));
                 
-                hand[i] = deck[cardRandom];
-                deck[cardRandom] = deck[51-i];
+                hand[i] = deck[card];
+                deck[card] = deck[51-i];
                 deck[51-i] = -1;
-                int card = hand[i];
+                int cardRandom = hand[i];
                 
                 
-                cardNum = cardNum(card);
-                suitType = suitType(card);
+                cardNum = cardNum(cardRandom);
+                suitType = suitType(cardRandom);
                 // System.out.println("Random number: "+cardRandom);
                 // System.out.println("Suit: "+suitType+"   Number: "+cardNum);
                 
@@ -115,8 +115,107 @@ public class PokerOdds{
         return suitType;
     }
     
-    // public static void simulateOdds(String[] hand) {
-    //     FindDuplicates.exactlyOneDup(cards);
-    // }
+    public static void simulateOdds() {
+        String answer = "";
+        int[] hand = {-1, -1, -1, -1, -1};
+        String[] duplicateOut = {"A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
+        int[] numOfDuplicates = new int[13];
+        
+    for(int z = 0; z<10000; z++){    
+        int[] deck = new int[52];
+        String[] suitOut = {"Clubs: ", "Diamonds: ", "Hearts: ", "Spades: "};
+        String cardNum = "";
+        String suitType = "";
+        String space = " ";
+        Boolean duplicate;
+        int cardRandom;
+        
+        for(int i=0; i<5; i++)
+            numOfDuplicates[i] = 0;
+            
+        for(int i=0; i<5; i++)
+            hand[i] = -1;
+            
+        //Gives deck of cards values
+        for(int i=0; i<deck.length; i++)
+            deck[i] = i;
+    
+    
+        for (int i=0; i<5; i++){    
+            int card = (int)(Math.random() * (52-i));
+            
+            hand[i] = deck[card];
+            deck[card] = deck[51-i];
+            deck[51-i] = -1;
+            cardRandom = hand[i];
+            
+            
+            cardNum = cardNum(cardRandom);
+            //System.out.println("Card Number: "+cardNum);
+            
+            
+            
+        }
+        
+        for(int i=0; i<5; i++){
+            hand[i] = hand[i]%13;
+            //System.out.println("Hand divided: "+hand[i]);
+        }
+        
+        
+        
+       //duplicate = FindDuplicates.exactlyOneDup(hand);
+       
+       
+       int numDuplicates = 0;
+        int totalDups = 0;
+        int cardWithDuplicate = -1;
+       
+        //Loop provides number to look for in array
+        for(int i=0; i<hand.length; i++){
+            int lookFor = hand[i];
+            
+            //Increases counter everytime numbers match
+            for(int n=0; n<hand.length; n++){
+                if (lookFor == hand[n])
+                    numDuplicates++;
+                    
+            }
+            
+            //Two matches are found -- only one duplicate may exist
+            if(numDuplicates == 2){
+                totalDups++; //New counter is increased (necessary in case more than two instances of same number)
+                cardWithDuplicate = lookFor;
+                
+            }
+            else if(numDuplicates >= 3) //Ends loop if more than 3 duplicates found
+                duplicate = false;
+            numDuplicates = 0; //Resets counter for next array search
+        }
+        
+        
+        if (totalDups == 2)
+            duplicate = true; //If pair exists, returns true
+        else {
+            duplicate = false;
+        }    
+       //System.out.println("Exactly 1 duplicate: "+duplicate);    
+       //System.out.println("Card With Duplicate: "+cardWithDuplicate);
+       
+       if (cardWithDuplicate != -1) {
+     //  numOfDuplicates[14 - cardWithDuplicate%13] += 1;
+         numOfDuplicates[cardWithDuplicate] += 1;
+       }
+    }//end thousand loop
+       
+       System.out.println("Rank\tExactly One Duplicate");
+       for(int i=0; i<13; i++){
+            System.out.println(duplicateOut[i]+"\t"+numOfDuplicates[i]);    
+       }
+       
+       
+       
+    }
+    
 }
 
