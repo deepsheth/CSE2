@@ -25,10 +25,8 @@ public class Credit {
                 cardType = "Visa";
         }  
         
-        if (cardType.equals("")) {
-            System.out.println("You did not enter a valid credit card number\nPlease enter an integer within the range [1000,9999].");
-            System.exit(0);
-        }
+        if (cardType.equals("")) 
+            System.out.println("You did not enter a valid credit card number\nCard issuer could not be detected.");
         else
             System.out.println("You have a "+cardType+" credit card.");
     }

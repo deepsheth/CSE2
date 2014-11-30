@@ -17,11 +17,12 @@ public class Arithmetic {
         double costMe$ = sliceCountMe*pizzaSlice$ + scoopCountMe*iceCreamScoop$;
         double costTotal$ = (costEd$+costJan$+costMe$)*tipPercent;
         double avg$ = (costEd$+costJan$+costMe$)/3;
-        System.out.println("Cost of Ed's order: "+costEd$);
-        System.out.println("Cost of aJn's order: "+costJan$);
-        System.out.println("Cost of my order: "+costMe$);
-        System.out.printf("Average cost per person: %.2f%n", + avg$);
-        System.out.printf("Total cost: %.2f%n",costTotal$);
-        System.out.println("Total paid: "+Math.ceil(costTotal$));
+        
+        System.out.println("Cost of Ed's order: $"+costEd$);
+        System.out.println("Cost of Jan's order: $"+costJan$);
+        System.out.println("Cost of my order: $"+costMe$);
+        System.out.printf("Average cost per person: $%.2f%n", avg$);
+        System.out.printf("Total cost: $%.2f\n",costTotal$);
+        System.out.println("Total paid: $"+Math.ceil(costTotal$));
     }
 }

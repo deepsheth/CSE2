@@ -4,7 +4,7 @@ public class ExpirationDate {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Enter the expiration date of your credit card (mmyy) ");
+        System.out.print("Enter the expiration date of your credit card (mmyy): ");
         
         if(!input.hasNextInt()){
             System.out.println("Please enter an integer.");
@@ -24,7 +24,7 @@ public class ExpirationDate {
         
         switch (monthNum) {
             case 1: month = "January"; break;
-            case 2: month = "Febuary"; break;
+            case 2: month = "February"; break;
             case 3: month = "March"; break;
             case 4: month = "April"; break;
             case 5: month = "May"; break;
