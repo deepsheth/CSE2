@@ -154,19 +154,21 @@ public class PokerHands {
             }
         }
         
+        // for(int i =0; i<handNum.length; i++){
+        //     System.out.println(handNum[i] + ", ");
+        // }
+        
         // Requirements for ROYAL/STRAIGHT FLUSH
         boolean consecutive = false;
         boolean sameSuit = false;
-        boolean consecutive3 = false;
-        boolean consecutive4 = false;
+        boolean fullHouse = false;
+        
         
         // Checks if hand has consecutive numbers
         for(int i=0, j=0; i<handNum.length-1; i++) {
             if (handNum[i] == handNum[i+1]-1)
                 j++; // Counts number of consecutive numbers
-            if (j==3)
-                consecutive4 = true;
-            else if (j==4){
+            if (j==4){
                 consecutive = true;
                 // If card numbers are consecutive, checks if suits are all same
                 for(int k=0, l=0; k<hand.length-1; k++) {
@@ -194,10 +196,51 @@ public class PokerHands {
         }
         
         // FOUR OF A KIND Test
-        if (consecutive4) {
-            System.out.println("You have Four of a Kind.");
-            return;
+        for(int i=0, j=0, lookFor=handNum[0]; i<hand.length-1; i++){
+            if(lookFor == handNum[i]) {
+                j++;
+                if (j==4) {
+                    System.out.println("This is Four of a Kind.");
+                    return;
+                }
+            }
         }
+        
+        for(int i=1, j=0, lookFor=handNum[1]; i<hand.length; i++){
+            if(lookFor == handNum[i]) {
+                j++;
+                if (j==4) {
+                    System.out.println("This is Four of a Kind.");
+                    return;
+                }
+            }
+        }
+            
+        // FULL HOUSE Test
+        for(int i=0, j=0; i<hand.length-2; i++){
+            if(handNum[0] == handNum[i]) {
+                j++;
+                if (j==3) {
+                    for(int k=3, l=0; k<hand.length; k++){
+                        if(handNum[3] == handNum[k]) {
+                            l++;
+                            System.out.println("K: "+k);
+                            if (l==2) {
+                                System.out.println("This is a Full House.");
+                                return;
+                            }
+                        }
+                        if (k>=3 && l==1) {
+                                System.out.println("This is Three of a Kind.");
+                                return;
+                            }
+                        
+                    }
+                }
+            }
+        }
+        
+
         
     }
 }
