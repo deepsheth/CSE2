@@ -59,7 +59,7 @@ public class PokerHands {
             valid = false; //Resets back
             
             do {
-                System.out.print("Please pick a card (A, Q, K, J, 10, 9, 8 ... 2 :");
+                System.out.print("Please pick a card (A, K, Q, J, 10, 9, 8 ... 2 :");
                 num = input.next().toUpperCase(); // Input is not case-sensitive
                 
                 //Program will interpret card 10 as number 0
@@ -87,6 +87,7 @@ public class PokerHands {
     
     public static void output(String[] suitOut, String[] hand) {
         
+        System.out.println("\nYour hand:");
         for(int i=0; i<suitOut.length; i++) {
             char suit = hand[i].charAt(0);
             char num = hand[i].charAt(1);
@@ -103,20 +104,32 @@ public class PokerHands {
             
             //Finds & stores all diamonds cards to output variable
             for(int j=0; j<hand.length && i==1; j++){
-                if (hand[j].charAt(0) == 'D')
-                    suitOut[i] += hand[j].charAt(1) + " ";
+                if (hand[j].charAt(0) == 'D') {
+                    if (hand[j].charAt(1) == '0')    
+                        suitOut[i] += "10" + " ";
+                    else
+                        suitOut[i] += hand[j].charAt(1) + " ";
+                }
             }
             
             //Finds & stores all hearts cards to output variable
             for(int j=0; j<hand.length && i==2; j++){
-                if (hand[j].charAt(0) == 'H')
-                    suitOut[i] += hand[j].charAt(1) + " ";
+                if (hand[j].charAt(0) == 'H') {
+                    if (hand[j].charAt(1) == '0')    
+                        suitOut[i] += "10" + " ";
+                    else
+                        suitOut[i] += hand[j].charAt(1) + " ";
+                }
             }
             
             //Finds & stores all club cards to output variable
             for(int j=0; j<hand.length && i==3; j++){
-                if (hand[j].charAt(0) == 'S')
-                    suitOut[i] += hand[j].charAt(1) + " ";
+                if (hand[j].charAt(0) == 'S') {
+                    if (hand[j].charAt(1) == '0')    
+                        suitOut[i] += "10" + " ";
+                    else
+                        suitOut[i] += hand[j].charAt(1) + " ";
+                }
             }
         }
         
@@ -161,7 +174,6 @@ public class PokerHands {
         // Requirements for ROYAL/STRAIGHT FLUSH
         boolean consecutive = false, sameSuit = false, fullHouse = false;
         boolean pairLeft = false, pairMiddle = false, pairRight = false;
-        
         
         // Checks if hand has consecutive numbers
         for(int i=0, j=0; i<handNum.length-1; i++) {
