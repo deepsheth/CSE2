@@ -216,7 +216,7 @@ public class PokerHands {
             }
         }
             
-        // FULL HOUSE Test
+        // FULL HOUSE & THREE OF A KIND Test (ex. hand: 2,2,2,4,4)
         for(int i=0, j=0; i<hand.length-2; i++){
             if(handNum[0] == handNum[i]) {
                 j++;
@@ -224,23 +224,70 @@ public class PokerHands {
                     for(int k=3, l=0; k<hand.length; k++){
                         if(handNum[3] == handNum[k]) {
                             l++;
-                            System.out.println("K: "+k);
                             if (l==2) {
                                 System.out.println("This is a Full House.");
                                 return;
                             }
                         }
-                        if (k>=3 && l==1) {
+                        if (k>3 && l==1) {
                                 System.out.println("This is Three of a Kind.");
                                 return;
-                            }
-                        
+                        }
                     }
                 }
             }
         }
         
-
+        // FULL HOUSE & THREE OF A KIND TEST 2 (ex. hand: 4,4,4,2,2)
+        for(int i=2, j=0; i<hand.length; i++){
+            if(handNum[2] == handNum[i]) {
+                j++;
+                if (j==3) {
+                    for(int k=0, l=0; k<hand.length-3; k++){
+                        if(handNum[0] == handNum[k]) {
+                            l++;
+                            if (l==2) {
+                                System.out.println("This is a Full House.");
+                                return;
+                            }
+                        }
+                        System.out.println("l: "+l+" K: "+k);
+                        if (k>0 && l==1) {
+                                System.out.println("This is Three of a Kind.");
+                                return;
+                            }
+                    }
+                }
+            }
+        }
+        
+        // THREE OF A KIND test (ex. hand: 2,4,4,4,2)
+        for(int i=1, n=0; i<hand.length-1; i++){
+            if(handNum[1]==handNum[i]){
+                n++;
+                if(n==3){
+                    System.out.println("This is Three of a Kind.");
+                    return;
+                }
+            }
+        }
+        
+        // FLUSH
+        for(int k=0, l=0; k<hand.length; k++) {
+            if (hand[0].charAt(0) == hand[k].charAt(0))
+                l++; // Counts number of consecutive suits
+            if (l==5){
+                System.out.println("This is a flush.");
+                return;
+            }
+        }
+        
+        // STRAIGHT
+        if (consecutive){
+            System.out.println("This is a straight.");
+            return;
+        }
+        
         
     }
 }
