@@ -11,28 +11,39 @@ public class PokerHands {
         
         String[] suitChoices = {"C","D","H","S"};
         String[] cardChoices = {"2","3","4","5","6","7","8","9","0","J","Q","K","A"};
-        String[] hand = {"-1","-1","-1","-1","-1"};
-        String card="";
-        String[] suitOut = {"Clubs: ", "Diamonds: ", "Hearts: ", "Spades: "};
         
-        for(int i=0; i<hand.length; i++){
-            boolean store = true;
-            card = cardValidator(suitChoices, cardChoices, hand);
-            
-            for(int j=0; j<hand.length; j++){
-                if (card.equals(hand[j])){
-                    System.out.println("** You already picked this card. Pick another card. **");
-                    i--;
-                    store = false;
-                    break;
+        String card="";
+        
+        
+        Scanner input = new Scanner(System.in);
+        String repeat = "";
+        
+        do {
+            String[] hand = {"-1","-1","-1","-1","-1"};
+            for(int i=0; i<hand.length; i++){
+                boolean store = true;
+                card = cardValidator(suitChoices, cardChoices, hand);
+                
+                for(int j=0; j<hand.length; j++){
+                    if (card.equals(hand[j])){
+                        System.out.println("** You already picked this card. Pick another card. **");
+                        i--;
+                        store = false;
+                        break;
+                    }
                 }
+                if(store)
+                    hand[i] = card;
             }
-            if(store)
-                hand[i] = card;
-        }
 
-        output(suitOut, hand);
+        output(hand);
         rank(hand);
+        
+        System.out.print("Enter 'y' or 'Y' to continue: ");
+        repeat = input.next(); 
+        System.out.println();
+        } while (repeat.equals("y") || repeat.equals("Y"));
+        
     }
     
     public static String cardValidator(String[] suitChoices, String[] cardChoices, String[] hand) {
@@ -85,7 +96,8 @@ public class PokerHands {
 
     }//end method
     
-    public static void output(String[] suitOut, String[] hand) {
+    public static void output(String[] hand) {
+        String[] suitOut = {"Clubs: ", "Diamonds: ", "Hearts: ", "Spades: "};
         
         System.out.println("\nYour hand:");
         for(int i=0; i<suitOut.length; i++) {
