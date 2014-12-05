@@ -159,9 +159,8 @@ public class PokerHands {
         // }
         
         // Requirements for ROYAL/STRAIGHT FLUSH
-        boolean consecutive = false;
-        boolean sameSuit = false;
-        boolean fullHouse = false;
+        boolean consecutive = false, sameSuit = false, fullHouse = false;
+        boolean pairLeft = false, pairMiddle = false, pairRight = false;
         
         
         // Checks if hand has consecutive numbers
@@ -235,10 +234,12 @@ public class PokerHands {
                         }
                     }
                 }
+                if (j==2)
+                    pairLeft = true;
             }
         }
         
-        // FULL HOUSE & THREE OF A KIND TEST 2 (ex. hand: 4,4,4,2,2)
+        // FULL HOUSE & THREE OF A KIND TEST 2 (ex. hand: 4,4,2,2,2)
         for(int i=2, j=0; i<hand.length; i++){
             if(handNum[2] == handNum[i]) {
                 j++;
@@ -258,6 +259,8 @@ public class PokerHands {
                             }
                     }
                 }
+                if (j==2)
+                    pairRight = true;
             }
         }
         
@@ -269,6 +272,8 @@ public class PokerHands {
                     System.out.println("This is Three of a Kind.");
                     return;
                 }
+                else if (n==2)
+                    pairMiddle = true;
             }
         }
         
@@ -288,6 +293,18 @@ public class PokerHands {
             return;
         }
         
-        
+        //TWO/ONE/NO PAIR
+        if ((pairLeft && pairMiddle) || (pairLeft && pairRight)) {
+            System.out.println("This has Two Pairs.");
+            return;
+        }
+        else if (pairLeft || pairMiddle || pairRight){
+            System.out.println("This has One Pair.");
+            return;
+        }
+        else {
+            System.out.println("This has No Pairs.");
+            return;
+        }
     }
 }
