@@ -63,9 +63,9 @@ public class MatrixSorter{
         //INSERSION SORT to sort rows
         for(int rows=0; rows<array.length; rows++) {
             int rowCount = rows;
-            int temp[];
+            int temporary[];
             while(rowCount !=0 && (array[rowCount][0] < array[rowCount-1][0])) {
-                temp = array[rowCount-1];
+                temporary = array[rowCount-1];
                 array[rowCount-1] = array[rowCount];
                 array[rowCount] = temp;
                 rowCount--;
